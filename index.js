@@ -8,11 +8,11 @@ const passport = require('passport');
 require('dotenv').config();
 const connectDb = require('./config/db');
 // Import User model
-const User = require('./models/User');
+const User = require('./models/Signup');
 
 // 2. Instantiations
 const app = express();
-const port = 4000;
+const port = 5000;
 
 // 3. Configuration
 // Set templating engine to pug
@@ -24,15 +24,9 @@ connectDb();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-// Logging middleware to log the time of each request
-app.use((req, res, next) => {
-  console.log('A new request received at ' + Date.now());
-  next();
-});
-
 // Express session configuration
 app.use(expressSession({
-  secret: 'thisIsMyNyondoStockProject',
+  secret: 'thisIsMyPractiseProject',
   resave: false,
   saveUninitialized: false
 }));
@@ -52,11 +46,8 @@ app.use((req, res, next) => {
 
 
 // 5. Routes
-app.use('/', require('./routes/indexRoutes'));
+app.use('/', require('./routes/productRoutes'));
 app.use('/', require('./routes/authRoutes'));
-app.use('/', require('./routes/adminRoutes'));
-app.use('/', require('./routes/storeRoutes'));
-app.use('/', require('./routes/salesRoutes'));
 
 // Handling non-existent routes
 app.use((req, res) => {

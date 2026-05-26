@@ -1,0 +1,109 @@
+.auth-input {
+  height: 58px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.auth-input:focus {
+  border-color: #00b050;
+  box-shadow: none;
+}
+
+.auth-btn {
+  background-color: #58c9ce;
+  color: #ffffff;
+  height: 56px;
+  transition: 0.3s ease;
+}
+
+.auth-btn:hover {
+  background-color: purple;
+  color: #ffffff;
+}
+
+.auth-success-card {
+  width: 735px;
+  min-height: 230px;
+  background-color: #58c9ce;
+}
+
+.product-card-large {
+  min-height: 265px;
+  border-radius: 5px;
+}
+
+.product-small-card {
+  min-height: 130px;
+  border-radius: 5px;
+}
+
+.product-form-card {
+  min-height: 465px;
+  border-radius: 5px;
+}
+
+.product-input {
+  height: 42px;
+  font-size: 16px;
+}
+
+.product-input:focus {
+  border-color: #00b050;
+  box-shadow: none;
+}
+
+.product-save-btn {
+  background-color: #f47c2c;
+  color: #ffffff;
+  height: 42px;
+  border-radius: 4px;
+}
+
+.product-save-btn:hover {
+  background-color: purple;
+  color: #ffffff;
+}
+
+.product-clear-btn {
+  background-color: #cfcaca;
+  color: #000000;
+  height: 42px;
+  border-radius: 4px;
+}
+
+.product-clear-btn:hover {
+  background-color: #999999;
+  color: #000000;
+}
+
+.product-table thead th {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.product-table td,
+.product-table th {
+  border: 1px solid #333333;
+  padding: 4px 10px;
+}
+
+.alert-success {
+  background-color: #00b050;
+  border-color: #00b050;
+  color: #ffffff;
+}
+
+.btn-dashboard {
+  color: #58c9ce;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.btn-dashboard:hover {
+  background-color: purple;
+  color: #ffffff;
+}

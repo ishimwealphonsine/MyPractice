@@ -1,0 +1,20 @@
+{
+  "name": "assessment-preparation",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ishimwealphonsine/MyPractice#readme",
+  "bugs": {
+    "url": "https://github.com/ishimwealphonsine/MyPractice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishimwealphonsine/MyPractice.git"
+  },
+  "license": "ISC",
+  "author": "Ishimwe Alphonsine",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

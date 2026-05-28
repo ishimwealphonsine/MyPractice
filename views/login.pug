@@ -18,21 +18,19 @@ html
               span #{error}
               a.text-white.text-decoration-none.fw-bold(href="/login") X
 
-          form(action="/login", method="POST")
+          form(action="/login", method="post" novalidate)
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="text",
                 name="email",
-                placeholder="Email or Phone Number",
-                required
+                placeholder="Email or Phone Number"
               )
 
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="password",
                 name="password",
-                placeholder="Password",
-                required
+                placeholder="Password"
               )
 
             button.btn.auth-btn.w-100.btn-lg.rounded-1.fw-bold(type="submit") LOGIN

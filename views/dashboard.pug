@@ -32,13 +32,13 @@ html(lang="en")
             .col-12.col-md-6
               .card.border.product-small-card
                 .card-body.d-flex.flex-column.justify-content-center.align-items-center
-                  h4.fw-bold.text-success.mb-0 UGX 42,000,000
+                  h4.fw-bold.text-success.mb-0 UGX #{Number(inStockValue || 0).toLocaleString()}
                   p.text-secondary.fs-5.mb-0 In stock
 
             .col-12.col-md-6
               .card.border.product-small-card
                 .card-body.d-flex.flex-column.justify-content-center.align-items-center
-                  h4.fw-bold.text-danger.mb-0 5
+                  h4.fw-bold.text-danger.mb-0 #{outOfStockCount || 0}
                   p.text-secondary.fs-5.mb-0 Out of stock
 
         // ADD PRODUCT FORM SECTION
@@ -50,53 +50,69 @@ html(lang="en")
               if success
                 .alert.alert-success.rounded-0.d-flex.justify-content-center.align-items-center.position-relative
                   span Product has been added successfully!
-                  a.text-white.text-decoration-none.fw-bold.position-absolute.end-0.me-3(href="/products") X
+                  a.text-white.text-decoration-none.fw-bold.position-absolute.end-0.me-3(href="/dashboard") X
 
-              form(action="/products/add", method="POST", enctype="multipart/form-data")
-                .mb-3
+              form(action="/dashboard", method="post")
+                .mb-2
                   input.form-control.rounded-0.product-input(
+                    class=errors && errors.name ? 'border border-danger' : '',
                     type="text",
-                    name="productName",
+                    name="name",
                     placeholder="Product Name",
-                    required
+                    value=formData && formData.name ? formData.name : ''
                   )
+                  if errors && errors.name
+                    small.text-danger #{errors.name}
 
-                .mb-3
+                .mb-2
                   input.form-control.rounded-0.product-input(
+                    class=errors && errors.category ? 'border border-danger' : '',
                     type="text",
                     name="category",
                     placeholder="Category",
-                    required
+                    value=formData && formData.category ? formData.category : ''
                   )
+                  if errors && errors.category
+                    small.text-danger #{errors.category}
 
-                .mb-3
+                .mb-2
                   input.form-control.rounded-0.product-input(
+                    class=errors && errors.price ? 'border border-danger' : '',
                     type="number",
                     name="price",
                     placeholder="Price",
-                    required
+                    value=formData && formData.price ? formData.price : ''
                   )
+                  if errors && errors.price
+                    small.text-danger #{errors.price}
 
-                .mb-3
+                .mb-2
                   input.form-control.rounded-0.product-input(
+                    class=errors && errors.quantity ? 'border border-danger' : '',
                     type="number",
                     name="quantity",
                     placeholder="Quantity",
-                    required
+                    value=formData && formData.quantity ? formData.quantity : ''
                   )
+                  if errors && errors.quantity
+                    small.text-danger #{errors.quantity}
 
                 .row.g-3.mb-4
                   .col-12.col-md-6
                     input.form-control.rounded-0.product-input(
+                      class=errors && errors.color ? 'border border-danger' : '',
                       type="text",
                       name="color",
-                      placeholder="Color"
+                      placeholder="Color",
+                      value=formData && formData.color ? formData.color : ''
                     )
+                    if errors && errors.color
+                      small.text-danger #{errors.color}
 
                   .col-12.col-md-6
                     input.form-control.rounded-0.product-input(
                       type="file",
-                      name="productImage"
+                      name="image"
                     )
 
                 .row.g-3
@@ -121,45 +137,15 @@ html(lang="en")
             if products && products.length
               each product in products
                 tr
-                  td #{product.productId}
-                  td #{product.productName}
+                  td ##{product._id.toString().slice(-6)}
+                  td #{product.name}
                   td #{product.category}
-                  td #{product.price}
+                  td #{Number(product.price).toLocaleString()}
                   td #{product.quantity}
             else
               tr
-                td #645341
-                td Sumsang s25+ Ultra
-                td Smart Phones
-                td 6,900,000
-                td 981
-              tr
-                td #645346
-                td Gucci XXL Shirt
-                td Fashion
-                td 500,000
-                td 100
-              tr
-                td #645342
-                td XL Zara Shirt
-                td Fashion
-                td 600,000
-                td 56
-              tr
-                td #645344
-                td iPhone 15
-                td Smart Phones
-                td 7,900,000
-                td 752
-              tr
-                td #645343
-                td Smart home Curtain
-                td Interior Design
-                td 500,000
-                td 30
-              tr
-                td #645345
-                td Spectrum Laptop 14.6 Inc
-                td Laptops
-                td 15,800,000
-                td 144
+                td(colspan="5").text-muted No products found
+      
+      .row.g-3.mt-3
+        .col-12.col-md-12
+          a.btn.product-save-btn.w-100.fw-bold(href="/logout") LOGOUT

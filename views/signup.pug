@@ -25,45 +25,40 @@ html
               span #{error}
               a.text-white.text-decoration-none.fw-bold(href="/signup") X
 
-          form(action="/signup", method="POST")
+          form(action="/signup", method="post" novalidate)
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="text",
                 name="fullName",
-                placeholder="Full Name",
-                required
+                placeholder="Full Name"
               )
 
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="email",
                 name="email",
-                placeholder="Email",
-                required
+                placeholder="Email"
               )
 
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="text",
                 name="phone",
-                placeholder="Phone Number",
-                required
+                placeholder="Phone Number"
               )
 
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="password",
                 name="password",
-                placeholder="Password",
-                required
+                placeholder="Password"
               )
 
             .mb-4
               input.form-control.form-control-lg.rounded-0.auth-input(
                 type="password",
                 name="confirmPassword",
-                placeholder="Confirm Password",
-                required
+                placeholder="Confirm Password"
               )
 
             button.btn.auth-btn.w-100.btn-lg.rounded-1.fw-bold(type="submit") SIGNUP

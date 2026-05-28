@@ -49,6 +49,19 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/productRoutes'));
 app.use('/', require('./routes/authRoutes'));
 
+// logout
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      return res.redirect('/dashboard');
+    }
+
+    res.clearCookie('connect.sid');
+    res.redirect('/login');
+  });
+});
+
 // Handling non-existent routes
 app.use((req, res) => {
   res.status(404).send('Oops! Route not found');
